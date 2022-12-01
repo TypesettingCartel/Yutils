@@ -3171,7 +3171,7 @@ Yutils = {
 						end
 						-- Get utf16 text
 						text = utf8_to_utf16(text)
-						local text_len = ffi.C.wcslen(text)
+						local text_len = tonumber(ffi.C.wcslen(text))
 						-- Get text extents with this font
 						local size = ffi.new("SIZE[1]")
 						ffi.C.GetTextExtentPoint32W(dc, text, text_len, size)
@@ -3190,7 +3190,7 @@ Yutils = {
 						local shape, shape_n = {}, 0
 						-- Get utf16 text
 						text = utf8_to_utf16(text)
-						local text_len = ffi.C.wcslen(text)
+						local text_len = tonumber(ffi.C.wcslen(text))
 						-- Add path to device context
 						if text_len > 8192 then
 							error("text too long", 2)
